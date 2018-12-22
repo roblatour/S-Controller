@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="SonoffMAC" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SonoffIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MQTTIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Relay01Commands" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Toggle</Value>
+    </Setting>
+    <Setting Name="Relay02Commands" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Toggle</Value>
+    </Setting>
+    <Setting Name="Relay03Commands" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Toggle</Value>
+    </Setting>
+    <Setting Name="Relay04Commands" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Toggle</Value>
+    </Setting>
+    <Setting Name="MQTTMAC" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApplicationVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RefreshRateValue" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="RefreshRateEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
