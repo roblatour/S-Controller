@@ -36,6 +36,12 @@ Partial Class frmSettings
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tbMQTTMAC = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.cb02 = New System.Windows.Forms.CheckBox()
+        Me.cb04 = New System.Windows.Forms.CheckBox()
+        Me.cb01 = New System.Windows.Forms.CheckBox()
+        Me.cb03 = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.tbRelay04Name = New System.Windows.Forms.TextBox()
         Me.tbRelay04Command = New System.Windows.Forms.TextBox()
@@ -52,6 +58,8 @@ Partial Class frmSettings
         Me.gbSonoff.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.udRefreshRate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -113,7 +121,7 @@ Partial Class frmSettings
         Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnOK.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnOK.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOK.Location = New System.Drawing.Point(577, 441)
+        Me.btnOK.Location = New System.Drawing.Point(590, 541)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(120, 49)
         Me.btnOK.TabIndex = 7
@@ -127,7 +135,7 @@ Partial Class frmSettings
         Me.btnWebInterface.BackColor = System.Drawing.SystemColors.Control
         Me.btnWebInterface.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnWebInterface.ForeColor = System.Drawing.Color.Black
-        Me.btnWebInterface.Location = New System.Drawing.Point(136, 441)
+        Me.btnWebInterface.Location = New System.Drawing.Point(143, 541)
         Me.btnWebInterface.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnWebInterface.Name = "btnWebInterface"
         Me.btnWebInterface.Size = New System.Drawing.Size(434, 49)
@@ -142,7 +150,7 @@ Partial Class frmSettings
         Me.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(9, 439)
+        Me.btnCancel.Location = New System.Drawing.Point(9, 539)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(120, 49)
         Me.btnCancel.TabIndex = 5
@@ -171,7 +179,7 @@ Partial Class frmSettings
         Me.GroupBox1.Controls.Add(Me.tbMQTTMAC)
         Me.GroupBox1.Controls.Add(Me.tbMQTTIP)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(367, 14)
+        Me.GroupBox1.Location = New System.Drawing.Point(380, 14)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(330, 117)
         Me.GroupBox1.TabIndex = 1
@@ -216,13 +224,95 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(9, 137)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(688, 244)
-        Me.GroupBox2.TabIndex = 4
+        Me.GroupBox2.Size = New System.Drawing.Size(701, 344)
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.TableLayoutPanel2)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 261)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(674, 77)
+        Me.GroupBox3.TabIndex = 1
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Mystro"
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 4
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.cb02, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.cb04, 3, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.cb01, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.cb03, 2, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(6, 21)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(662, 44)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
+        'cb02
+        '
+        Me.cb02.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb02.AutoSize = True
+        Me.cb02.Location = New System.Drawing.Point(168, 13)
+        Me.cb02.Name = "cb02"
+        Me.cb02.Size = New System.Drawing.Size(159, 28)
+        Me.cb02.TabIndex = 1
+        Me.cb02.Text = "xxxxxxxxxxxx"
+        Me.cb02.UseVisualStyleBackColor = True
+        '
+        'cb04
+        '
+        Me.cb04.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb04.AutoSize = True
+        Me.cb04.Location = New System.Drawing.Point(498, 13)
+        Me.cb04.Name = "cb04"
+        Me.cb04.Size = New System.Drawing.Size(161, 28)
+        Me.cb04.TabIndex = 2
+        Me.cb04.Text = "xxxxxxxxxxxx"
+        Me.cb04.UseVisualStyleBackColor = True
+        '
+        'cb01
+        '
+        Me.cb01.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb01.AutoSize = True
+        Me.cb01.Location = New System.Drawing.Point(3, 13)
+        Me.cb01.Name = "cb01"
+        Me.cb01.Size = New System.Drawing.Size(159, 28)
+        Me.cb01.TabIndex = 0
+        Me.cb01.Text = "xxxxxxxxxxxx"
+        Me.cb01.UseVisualStyleBackColor = True
+        '
+        'cb03
+        '
+        Me.cb03.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb03.AutoSize = True
+        Me.cb03.Location = New System.Drawing.Point(333, 13)
+        Me.cb03.Name = "cb03"
+        Me.cb03.Size = New System.Drawing.Size(159, 28)
+        Me.cb03.TabIndex = 3
+        Me.cb03.Text = "xxxxxxxxxxxx"
+        Me.cb03.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -253,7 +343,7 @@ Partial Class frmSettings
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(665, 190)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(679, 231)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'tbRelay04Name
@@ -263,11 +353,11 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRelay04Name.BackColor = System.Drawing.SystemColors.Control
         Me.tbRelay04Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tbRelay04Name.Location = New System.Drawing.Point(4, 152)
+        Me.tbRelay04Name.Location = New System.Drawing.Point(4, 182)
         Me.tbRelay04Name.Multiline = True
         Me.tbRelay04Name.Name = "tbRelay04Name"
         Me.tbRelay04Name.ReadOnly = True
-        Me.tbRelay04Name.Size = New System.Drawing.Size(164, 34)
+        Me.tbRelay04Name.Size = New System.Drawing.Size(164, 45)
         Me.tbRelay04Name.TabIndex = 2
         Me.tbRelay04Name.TabStop = False
         Me.tbRelay04Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -278,10 +368,10 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRelay04Command.BackColor = System.Drawing.SystemColors.Window
-        Me.tbRelay04Command.Location = New System.Drawing.Point(175, 152)
+        Me.tbRelay04Command.Location = New System.Drawing.Point(175, 182)
         Me.tbRelay04Command.Multiline = True
         Me.tbRelay04Command.Name = "tbRelay04Command"
-        Me.tbRelay04Command.Size = New System.Drawing.Size(486, 34)
+        Me.tbRelay04Command.Size = New System.Drawing.Size(500, 45)
         Me.tbRelay04Command.TabIndex = 6
         '
         'tbRelay03Command
@@ -290,10 +380,10 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRelay03Command.BackColor = System.Drawing.SystemColors.Window
-        Me.tbRelay03Command.Location = New System.Drawing.Point(175, 113)
+        Me.tbRelay03Command.Location = New System.Drawing.Point(175, 133)
         Me.tbRelay03Command.Multiline = True
         Me.tbRelay03Command.Name = "tbRelay03Command"
-        Me.tbRelay03Command.Size = New System.Drawing.Size(486, 32)
+        Me.tbRelay03Command.Size = New System.Drawing.Size(500, 42)
         Me.tbRelay03Command.TabIndex = 5
         '
         'tbRelay03Name
@@ -303,11 +393,11 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRelay03Name.BackColor = System.Drawing.SystemColors.Control
         Me.tbRelay03Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tbRelay03Name.Location = New System.Drawing.Point(4, 113)
+        Me.tbRelay03Name.Location = New System.Drawing.Point(4, 133)
         Me.tbRelay03Name.Multiline = True
         Me.tbRelay03Name.Name = "tbRelay03Name"
         Me.tbRelay03Name.ReadOnly = True
-        Me.tbRelay03Name.Size = New System.Drawing.Size(164, 32)
+        Me.tbRelay03Name.Size = New System.Drawing.Size(164, 42)
         Me.tbRelay03Name.TabIndex = 1
         Me.tbRelay03Name.TabStop = False
         Me.tbRelay03Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -319,11 +409,11 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRelay02Name.BackColor = System.Drawing.SystemColors.Control
         Me.tbRelay02Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tbRelay02Name.Location = New System.Drawing.Point(4, 74)
+        Me.tbRelay02Name.Location = New System.Drawing.Point(4, 84)
         Me.tbRelay02Name.Multiline = True
         Me.tbRelay02Name.Name = "tbRelay02Name"
         Me.tbRelay02Name.ReadOnly = True
-        Me.tbRelay02Name.Size = New System.Drawing.Size(164, 32)
+        Me.tbRelay02Name.Size = New System.Drawing.Size(164, 42)
         Me.tbRelay02Name.TabIndex = 0
         Me.tbRelay02Name.TabStop = False
         Me.tbRelay02Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -334,10 +424,10 @@ Partial Class frmSettings
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRelay02Command.BackColor = System.Drawing.SystemColors.Window
-        Me.tbRelay02Command.Location = New System.Drawing.Point(175, 74)
+        Me.tbRelay02Command.Location = New System.Drawing.Point(175, 84)
         Me.tbRelay02Command.Multiline = True
         Me.tbRelay02Command.Name = "tbRelay02Command"
-        Me.tbRelay02Command.Size = New System.Drawing.Size(486, 32)
+        Me.tbRelay02Command.Size = New System.Drawing.Size(500, 42)
         Me.tbRelay02Command.TabIndex = 4
         '
         'tbRelay01Command
@@ -349,7 +439,7 @@ Partial Class frmSettings
         Me.tbRelay01Command.Location = New System.Drawing.Point(175, 35)
         Me.tbRelay01Command.Multiline = True
         Me.tbRelay01Command.Name = "tbRelay01Command"
-        Me.tbRelay01Command.Size = New System.Drawing.Size(486, 32)
+        Me.tbRelay01Command.Size = New System.Drawing.Size(500, 42)
         Me.tbRelay01Command.TabIndex = 3
         '
         'tbRelay01Name
@@ -363,7 +453,7 @@ Partial Class frmSettings
         Me.tbRelay01Name.Multiline = True
         Me.tbRelay01Name.Name = "tbRelay01Name"
         Me.tbRelay01Name.ReadOnly = True
-        Me.tbRelay01Name.Size = New System.Drawing.Size(164, 32)
+        Me.tbRelay01Name.Size = New System.Drawing.Size(164, 42)
         Me.tbRelay01Name.TabIndex = 9
         Me.tbRelay01Name.TabStop = False
         Me.tbRelay01Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -390,7 +480,7 @@ Partial Class frmSettings
         Me.TextBox2.Location = New System.Drawing.Point(175, 4)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(486, 29)
+        Me.TextBox2.Size = New System.Drawing.Size(500, 29)
         Me.TextBox2.TabIndex = 3
         Me.TextBox2.TabStop = False
         Me.TextBox2.Text = "Routine"
@@ -400,10 +490,10 @@ Partial Class frmSettings
         Me.cbRefreshRateEnabled.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbRefreshRateEnabled.AutoSize = True
         Me.cbRefreshRateEnabled.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbRefreshRateEnabled.Location = New System.Drawing.Point(14, 389)
+        Me.cbRefreshRateEnabled.Location = New System.Drawing.Point(14, 489)
         Me.cbRefreshRateEnabled.Name = "cbRefreshRateEnabled"
         Me.cbRefreshRateEnabled.Size = New System.Drawing.Size(676, 28)
-        Me.cbRefreshRateEnabled.TabIndex = 2
+        Me.cbRefreshRateEnabled.TabIndex = 3
         Me.cbRefreshRateEnabled.Text = "If the MQTT server is unavailable check the Sonoff every                     seco" &
     "nds"
         Me.cbRefreshRateEnabled.UseVisualStyleBackColor = True
@@ -412,12 +502,12 @@ Partial Class frmSettings
         '
         Me.udRefreshRate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.udRefreshRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.udRefreshRate.Location = New System.Drawing.Point(509, 388)
+        Me.udRefreshRate.Location = New System.Drawing.Point(509, 488)
         Me.udRefreshRate.Maximum = New Decimal(New Integer() {3600, 0, 0, 0})
         Me.udRefreshRate.Minimum = New Decimal(New Integer() {10, 0, 0, 0})
         Me.udRefreshRate.Name = "udRefreshRate"
         Me.udRefreshRate.Size = New System.Drawing.Size(91, 29)
-        Me.udRefreshRate.TabIndex = 3
+        Me.udRefreshRate.TabIndex = 4
         Me.udRefreshRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.udRefreshRate.Value = New Decimal(New Integer() {30, 0, 0, 0})
         '
@@ -427,7 +517,7 @@ Partial Class frmSettings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(709, 502)
+        Me.ClientSize = New System.Drawing.Size(722, 602)
         Me.Controls.Add(Me.udRefreshRate)
         Me.Controls.Add(Me.cbRefreshRateEnabled)
         Me.Controls.Add(Me.GroupBox1)
@@ -436,7 +526,7 @@ Partial Class frmSettings
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnWebInterface)
         Me.Controls.Add(Me.btnOK)
-        Me.MinimumSize = New System.Drawing.Size(725, 490)
+        Me.MinimumSize = New System.Drawing.Size(738, 641)
         Me.Name = "frmSettings"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "Sonoff Contoller - Settings"
@@ -445,6 +535,9 @@ Partial Class frmSettings
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.udRefreshRate, System.ComponentModel.ISupportInitialize).EndInit()
@@ -480,4 +573,10 @@ Partial Class frmSettings
     Friend WithEvents tbMQTTMAC As TextBox
     Friend WithEvents cbRefreshRateEnabled As CheckBox
     Friend WithEvents udRefreshRate As NumericUpDown
+    Friend WithEvents cb04 As CheckBox
+    Friend WithEvents cb03 As CheckBox
+    Friend WithEvents cb01 As CheckBox
+    Friend WithEvents cb02 As CheckBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
 End Class

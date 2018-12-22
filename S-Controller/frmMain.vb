@@ -190,6 +190,10 @@ Public Class frmMain
             Dim WorkingButton As Button
             Dim WorkingText As String = String.Empty
 
+            Dim WorkingButtonNames(4) As String
+
+            'set relay button names
+
             For x = 1 To 4
 
                 'bnt1 thru btn4 are the large buttons on the main window which show the Sonoff relay names and statuses
@@ -199,6 +203,8 @@ Public Class frmMain
                 If WorkingText.EndsWith("(ON)") Then WorkingText = WorkingText.Remove(WorkingText.LastIndexOf("(ON)"))
                 If WorkingText.EndsWith("(OFF)") Then WorkingText = WorkingText.Remove(WorkingText.LastIndexOf("(OFF)"))
                 WorkingText = WorkingText.Trim
+
+                WorkingButtonNames(x) = WorkingText
 
                 If gSonoffIsAlive Then
                     If gSwitchValue(x) Then
@@ -214,6 +220,38 @@ Public Class frmMain
                 End If
 
             Next
+
+            'set mastro name
+
+            Dim MystroText As String = String.Empty
+
+            If gSonoffIsAlive Then
+
+                With My.Settings
+
+                    If .Mystro01 Then MystroText &= WorkingButtonNames(1) & " + "
+                    If .Mystro02 Then MystroText &= WorkingButtonNames(2) & " + "
+                    If .Mystro03 Then MystroText &= WorkingButtonNames(3) & " + "
+                    If .Mystro04 Then MystroText &= WorkingButtonNames(4)
+
+                End With
+
+                MystroText = MystroText.Trim.TrimEnd("+").Trim
+
+                If MystroText.Length = 0 Then
+                    MystroText = "Not set"
+                End If
+
+            Else
+
+                MystroText = "Not available"
+
+            End If
+
+            btnMystro.Text = MystroText
+            btnMystro.Enabled = Not ((MystroText = "Not set") OrElse (MystroText = "Not available"))
+
+            btnMystro.BackColor = Color.LightBlue
 
             Application.DoEvents()
 
@@ -311,6 +349,14 @@ Public Class frmMain
 
         Dim RelayNumber As Integer = CInt(sender.Tag)
 
+        IssueARelayCommand(RelayNumber)
+
+        SuspendScreenUpdates(False)
+
+    End Sub
+
+    Private Sub IssueARelayCommand(ByVal RelayNumber As Integer)
+
         Dim RelayCommands As String = String.Empty
 
         Select Case RelayNumber
@@ -380,8 +426,6 @@ Public Class frmMain
 
         Next
 
-        SuspendScreenUpdates(False)
-
     End Sub
 
     Private Sub ToggleButtons_Click(sender As Object, e As EventArgs) Handles btn5.Click, btn6.Click, btn7.Click, btn8.Click
@@ -411,6 +455,24 @@ Public Class frmMain
 
     End Sub
 
+    Private Sub btnMystro_Click(sender As Object, e As EventArgs) Handles btnMystro.Click
+
+        'btnMystro.Enabled = False
+        SuspendScreenUpdates(True)
+
+        With My.Settings
+            If .Mystro01 Then IssueARelayCommand(1) : Application.DoEvents()
+            If .Mystro02 Then IssueARelayCommand(2) : Application.DoEvents()
+            If .Mystro03 Then IssueARelayCommand(3) : Application.DoEvents()
+            If .Mystro04 Then IssueARelayCommand(4) : Application.DoEvents()
+        End With
+
+        SuspendScreenUpdates(False)
+        'btnMystro.Enabled = True
+
+    End Sub
+
+
     Private Sub SonoffResponding(ByVal Responding As Boolean)
 
         Static Dim LastResponding As Boolean = Not Responding
@@ -425,6 +487,7 @@ Public Class frmMain
                 GetSwitchSettings()
                 UpdateDisplay_Sonoff()
                 gbRelays.Enabled = True
+                gbMystro.Enabled = True
                 gLastSonoffStatus = True
 
                 tsSonoffStatus.Text = "Sonoff " & gSonoffIPAddress
@@ -434,6 +497,7 @@ Public Class frmMain
 
                 tsSonoffStatus.ForeColor = Color.Red
                 gbRelays.Enabled = False
+                gbMystro.Enabled = False
                 gLastSonoffStatus = False
 
                 If gDebugIsOn Then Console.WriteLine("sonoff did not respond")
@@ -696,29 +760,36 @@ Public Class frmMain
 
         Dim HoldRefreshRateEnabled As Boolean = My.Settings.RefreshRateEnabled
         Dim HoldRefreshRateValue = My.Settings.RefreshRateValue
+        Dim Hold_Mystro01 As Boolean = My.Settings.Mystro01
+        Dim Hold_Mystro02 As Boolean = My.Settings.Mystro02
+        Dim Hold_Mystro03 As Boolean = My.Settings.Mystro03
+        Dim Hold_Mystro04 As Boolean = My.Settings.Mystro04
 
         Dim frmSettings As Form = New frmSettings
         frmSettings.ShowDialog()
+
 
         If (gSonoffIPAddress <> My.Settings.SonoffIP) OrElse (gMQTTIPAddress <> My.Settings.MQTTIP) Then
 
             gSonoffIPAddress = My.Settings.SonoffIP
             gMQTTIPAddress = My.Settings.MQTTIP
             Initialize()
+            Exit Sub
 
-        Else
+        End If
 
-            If (HoldRefreshRateEnabled <> My.Settings.RefreshRateEnabled) OrElse (HoldRefreshRateValue <> My.Settings.RefreshRateValue) Then
+        If (Hold_Mystro01 <> My.Settings.Mystro01) OrElse (Hold_Mystro02 <> My.Settings.Mystro02) OrElse (Hold_Mystro03 <> My.Settings.Mystro03) OrElse (Hold_Mystro04 <> My.Settings.Mystro04) Then
+            UpdateDisplay()
+        End If
 
-                If My.Settings.RefreshRateEnabled Then
-                    sOnoffTimer.Interval = My.Settings.RefreshRateValue * 1000 'check incase the user presses a button on the Sonoff device and the display needs to be updated
-                    sOnoffTimer.Start()
-                Else
-                    sOnoffTimer.Stop()
-                End If
+        If (HoldRefreshRateEnabled <> My.Settings.RefreshRateEnabled) OrElse (HoldRefreshRateValue <> My.Settings.RefreshRateValue) Then
 
+            If My.Settings.RefreshRateEnabled Then
+                sOnoffTimer.Interval = My.Settings.RefreshRateValue * 1000 'check incase the user presses a button on the Sonoff device and the display needs to be updated
+                sOnoffTimer.Start()
+            Else
+                sOnoffTimer.Stop()
             End If
-
         End If
 
     End Sub

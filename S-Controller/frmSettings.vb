@@ -29,6 +29,11 @@ Public Class frmSettings
             tbRelay03Command.Text = .Relay03Commands
             tbRelay04Command.Text = .Relay04Commands
 
+            cb01.Checked = .Mystro01
+            cb02.Checked = .Mystro02
+            cb03.Checked = .Mystro03
+            cb04.Checked = .Mystro04
+
         End With
 
         udRefreshRate.Enabled = cbRefreshRateEnabled.Checked
@@ -37,6 +42,11 @@ Public Class frmSettings
         tbRelay02Name.Text = frmMain.btn2.Text.Replace("(ON)", "").Replace("(OFF)", "")
         tbRelay03Name.Text = frmMain.btn3.Text.Replace("(ON)", "").Replace("(OFF)", "")
         tbRelay04Name.Text = frmMain.btn4.Text.Replace("(ON)", "").Replace("(OFF)", "")
+
+        cb01.Text = tbRelay01Name.Text
+        cb02.Text = tbRelay02Name.Text
+        cb03.Text = tbRelay03Name.Text
+        cb04.Text = tbRelay04Name.Text
 
         tbSonoffIPAddress.Select()
         tbSonoffIPAddress.SelectionStart = tbSonoffIPAddress.Text.Length
@@ -191,6 +201,11 @@ Public Class frmSettings
             .Relay02Commands = tbRelay02Command.Text
             .Relay03Commands = tbRelay03Command.Text
             .Relay04Commands = tbRelay04Command.Text
+
+            .Mystro01 = cb01.Checked
+            .Mystro02 = cb02.Checked
+            .Mystro03 = cb03.Checked
+            .Mystro04 = cb04.Checked
 
             .Save()
 

@@ -185,6 +185,54 @@ Namespace My
                 Me("RefreshRateEnabled") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mystro01() As Boolean
+            Get
+                Return CType(Me("Mystro01"),Boolean)
+            End Get
+            Set
+                Me("Mystro01") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mystro02() As Boolean
+            Get
+                Return CType(Me("Mystro02"),Boolean)
+            End Get
+            Set
+                Me("Mystro02") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mystro03() As Boolean
+            Get
+                Return CType(Me("Mystro03"),Boolean)
+            End Get
+            Set
+                Me("Mystro03") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mystro04() As Boolean
+            Get
+                Return CType(Me("Mystro04"),Boolean)
+            End Get
+            Set
+                Me("Mystro04") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

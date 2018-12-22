@@ -37,25 +37,28 @@ Partial Class frmMain
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Settings = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MQTTOnlineTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnMystro = New System.Windows.Forms.Button()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.tsSonoffStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsMQTTServerStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.sOnoffTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MQTTRefreshTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.gbMystro = New System.Windows.Forms.GroupBox()
         Me.gbRelays.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
+        Me.gbMystro.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn4
         '
         Me.btn4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn4.ForeColor = System.Drawing.Color.White
-        Me.btn4.Location = New System.Drawing.Point(14, 160)
+        Me.btn4.Location = New System.Drawing.Point(14, 158)
         Me.btn4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn4.Name = "btn4"
         Me.btn4.Size = New System.Drawing.Size(426, 34)
@@ -69,7 +72,7 @@ Partial Class frmMain
         '
         Me.btn3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn3.ForeColor = System.Drawing.Color.White
-        Me.btn3.Location = New System.Drawing.Point(14, 118)
+        Me.btn3.Location = New System.Drawing.Point(14, 116)
         Me.btn3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(426, 34)
@@ -83,7 +86,7 @@ Partial Class frmMain
         '
         Me.btn2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn2.ForeColor = System.Drawing.Color.White
-        Me.btn2.Location = New System.Drawing.Point(14, 76)
+        Me.btn2.Location = New System.Drawing.Point(14, 74)
         Me.btn2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(426, 34)
@@ -97,7 +100,7 @@ Partial Class frmMain
         '
         Me.btn1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn1.ForeColor = System.Drawing.Color.White
-        Me.btn1.Location = New System.Drawing.Point(14, 34)
+        Me.btn1.Location = New System.Drawing.Point(14, 32)
         Me.btn1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(426, 34)
@@ -124,7 +127,7 @@ Partial Class frmMain
         Me.gbRelays.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.gbRelays.Name = "gbRelays"
         Me.gbRelays.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.gbRelays.Size = New System.Drawing.Size(584, 212)
+        Me.gbRelays.Size = New System.Drawing.Size(584, 207)
         Me.gbRelays.TabIndex = 1
         Me.gbRelays.TabStop = False
         Me.gbRelays.Text = "Relays"
@@ -132,7 +135,7 @@ Partial Class frmMain
         'btn6
         '
         Me.btn6.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btn6.Location = New System.Drawing.Point(462, 76)
+        Me.btn6.Location = New System.Drawing.Point(462, 74)
         Me.btn6.Name = "btn6"
         Me.btn6.Size = New System.Drawing.Size(95, 33)
         Me.btn6.TabIndex = 6
@@ -144,7 +147,7 @@ Partial Class frmMain
         'btn7
         '
         Me.btn7.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btn7.Location = New System.Drawing.Point(462, 118)
+        Me.btn7.Location = New System.Drawing.Point(462, 116)
         Me.btn7.Name = "btn7"
         Me.btn7.Size = New System.Drawing.Size(95, 33)
         Me.btn7.TabIndex = 7
@@ -156,7 +159,7 @@ Partial Class frmMain
         'btn8
         '
         Me.btn8.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btn8.Location = New System.Drawing.Point(462, 160)
+        Me.btn8.Location = New System.Drawing.Point(462, 158)
         Me.btn8.Name = "btn8"
         Me.btn8.Size = New System.Drawing.Size(95, 33)
         Me.btn8.TabIndex = 7
@@ -168,7 +171,7 @@ Partial Class frmMain
         'btn5
         '
         Me.btn5.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btn5.Location = New System.Drawing.Point(462, 34)
+        Me.btn5.Location = New System.Drawing.Point(462, 32)
         Me.btn5.Name = "btn5"
         Me.btn5.Size = New System.Drawing.Size(95, 33)
         Me.btn5.TabIndex = 5
@@ -198,28 +201,49 @@ Partial Class frmMain
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(136, 26)
         Me.RefreshToolStripMenuItem.Text = "&Refresh"
         '
         'Settings
         '
         Me.Settings.Name = "Settings"
-        Me.Settings.Size = New System.Drawing.Size(180, 26)
+        Me.Settings.Size = New System.Drawing.Size(136, 26)
         Me.Settings.Text = "&Settings"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(136, 26)
         Me.ExitToolStripMenuItem.Text = "&Exit"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(64, 25)
+        Me.AboutToolStripMenuItem.Text = "&About"
         '
         'MQTTOnlineTimer
         '
         '
+        'btnMystro
+        '
+        Me.btnMystro.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMystro.ForeColor = System.Drawing.Color.White
+        Me.btnMystro.Location = New System.Drawing.Point(15, 23)
+        Me.btnMystro.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnMystro.Name = "btnMystro"
+        Me.btnMystro.Size = New System.Drawing.Size(543, 34)
+        Me.btnMystro.TabIndex = 5
+        Me.btnMystro.Tag = "4"
+        Me.btnMystro.Text = " 1 + 2 + 3 + 4"
+        Me.ToolTip1.SetToolTip(Me.btnMystro, "Click to run the Mystro routine")
+        Me.btnMystro.UseVisualStyleBackColor = True
+        '
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsSonoffStatus, Me.ToolStripStatusLabel1, Me.tsMQTTServerStatus})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 259)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 325)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(610, 22)
         Me.StatusStrip.TabIndex = 2
@@ -251,18 +275,24 @@ Partial Class frmMain
         'MQTTRefreshTimer
         '
         '
-        'AboutToolStripMenuItem
+        'gbMystro
         '
-        Me.AboutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(64, 25)
-        Me.AboutToolStripMenuItem.Text = "&About"
+        Me.gbMystro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbMystro.Controls.Add(Me.btnMystro)
+        Me.gbMystro.Location = New System.Drawing.Point(12, 257)
+        Me.gbMystro.Name = "gbMystro"
+        Me.gbMystro.Size = New System.Drawing.Size(582, 65)
+        Me.gbMystro.TabIndex = 3
+        Me.gbMystro.TabStop = False
+        Me.gbMystro.Text = "Mystro"
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(610, 281)
+        Me.ClientSize = New System.Drawing.Size(610, 347)
+        Me.Controls.Add(Me.gbMystro)
         Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.gbRelays)
         Me.Controls.Add(Me.MenuStrip1)
@@ -280,6 +310,7 @@ Partial Class frmMain
         Me.MenuStrip1.PerformLayout()
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
+        Me.gbMystro.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -307,4 +338,6 @@ Partial Class frmMain
     Friend WithEvents sOnoffTimer As Timer
     Friend WithEvents MQTTRefreshTimer As Timer
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents gbMystro As GroupBox
+    Friend WithEvents btnMystro As Button
 End Class
